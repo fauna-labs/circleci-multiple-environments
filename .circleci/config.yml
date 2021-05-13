@@ -21,12 +21,16 @@ workflows:
     jobs:
       - run_migrations:
           name: build-staging
+          context:
+            - staging
           filters:
             branches:
               only: staging
 
       - run_migrations:
           name: build-production
+          context:
+            - production
           filters:
             branches:
               only: main
