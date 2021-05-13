@@ -12,10 +12,9 @@ jobs:
       fauna_admin_key:
         description: Fauna admin/server key for a given environment
         type: string
-    environment:
-      FAUNA_ADMIN_KEY: << parameters.fauna_admin_key >>
     steps:
       - checkout
+      - run: export FAUNA_ADMIN_KEY=<< parameters.fauna_admin_key >>
       - run: npm ci
       - run: npx fauna-schema-migrate generate
       - run: npx fauna-schema-migrate apply
