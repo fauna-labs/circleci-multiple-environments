@@ -1,9 +1,13 @@
 version: 2.1
 
+# TODO: Modify to work with the CircleCI Node.js orb
+# orbs:
+#   node: circleci/node@4.3.0
+
 jobs:
   run_migrations:
     docker:
-      - image: circleci/nodejs:15.1
+      - image: circleci/node:14.16
     parameters:
       fauna_admin_key:
         description: Fauna admin/server key for a given environment
