@@ -1,0 +1,28 @@
+{
+  "name": "circleci-multiple-environments",
+  "version": "0.1.0",
+  "description": "A sample project to demonstrate deployment schema to multiple environments using the Fauna Schema Migrate tool and CircleCI",
+  "main": "app.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fauna-labs/circleci-multiple-environments.git"
+  },
+  "keywords": [
+    "CircleCI",
+    "Fauna",
+    "CI/CD"
+  ],
+  "author": "Rob Sutter <rob.sutter@fauna.com>",
+  "license": "MIT-0",
+  "bugs": {
+    "url": "https://github.com/fauna-labs/circleci-multiple-environments/issues"
+  },
+  "homepage": "https://github.com/fauna-labs/circleci-multiple-environments#readme",
+  "dependencies": {
+    "fauna-schema-migrate": "^2.1.2",
+    "faunadb": "^4.2.0"
+  }
+}
