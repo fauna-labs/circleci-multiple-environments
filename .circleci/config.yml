@@ -1,13 +1,35 @@
 version: 2.1
 
-orbs:
-  node: circleci/node@4.1
+jobs:
+  run_migrations:
+    docker:
+      - image: circleci/nodejs:15.1
+    parameters:
+      fauna_admin_key:
+        description: Fauna admin/server key for a given environment
+        type: string
+    environment:
+      FAUNA_ADMIN_KEY: << parameters.fauna_admin_key >>
+    steps:
+      - checkout
+      - run: npm ci
+      - run: npx fauna-schema-migrate generate
+      - run: npx fauna-schema-migrate apply
+      - run: npx fauna-schema-migrate state
 
 workflows:
-  sample:
+  workflow:
     jobs:
-      - node/test:
-          version: '15.1'
-          # This is the node version to use for the `cimg/node` tag
-          # Relevant tags can be found on the CircleCI Developer Hub
-          # https://circleci.com/developer/images/image/cimg/node
+      - run_migrations:
+          name: build-staging
+          filters:
+            branches:
+              only: staging
+          fauna_admin_key: $STAGING_FAUNA_ADMIN_KEY
+
+      - run_migrations:
+          name: build-production
+          filters:
+            branches:
+              only: main
+          fauna_admin_key: $PRODUCTION_FAUNA_ADMIN_KEY
