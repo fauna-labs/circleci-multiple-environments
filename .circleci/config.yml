@@ -13,7 +13,7 @@ jobs:
       - run: npm ci
       - run: npx fauna-schema-migrate state
       - run: npx fauna-schema-migrate generate
-      - run: npx fauna-schema-migrate apply
+      - run: npx fauna-schema-migrate apply all
       - run: npx fauna-schema-migrate state
 
 workflows:
