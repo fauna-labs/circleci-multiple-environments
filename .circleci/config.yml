@@ -1,9 +1,5 @@
 version: 2.1
 
-# TODO: Modify to work with the CircleCI Node.js orb
-# orbs:
-#   node: circleci/node@4.3.0
-
 jobs:
   run_migrations:
     docker:
