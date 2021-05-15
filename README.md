@@ -69,7 +69,7 @@ git checkout -b staging && git push --set-upstream
 
 What you do next is up to you! You can create, modify, and delete collections, functions, indexes, keys, roles, and access providers. Each change you make is deployed to the appropriate environment based on the branch you push.
 
-To add additional branches and options, modify the [CircleCI config file][.circleci/config.yml].
+To add additional branches and options, modify the [CircleCI config file]().circleci/config.yml).
 
 ## Cleaning up resources
 
@@ -91,3 +91,4 @@ Copyright Fauna, Inc. or its affiliates. All rights reserved. SPDX-License-Ident
 [fauna-labs]: https://github.com/fauna-labs
 [fauna-organization]: https://github.com/fauna
 [fauna-register]: https://dashboard.fauna.com/accounts/register
+[fauna-schema-migrate]: https://github.com/
